@@ -34,6 +34,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav {
+  height: 96px;
+  border-bottom: 5px solid;
+  border-image: linear-gradient(to bottom, #a0a5a5, #ffffff) 50% 0%;
+}
 .logo-img {
   width: 70px;
   height: 64px;
@@ -48,13 +53,11 @@ export default {
   color: var(--main-font-color);
 }
 
-.nav {
-  height: 162px;
-}
 .wrapper-link {
   width: 630px;
 }
 .circle {
+  justify-content: center;
   width: 8px;
   height: 8px;
   border-radius: 50%;
