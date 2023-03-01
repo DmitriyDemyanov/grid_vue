@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="container">
-      <MainHeader />
-    </div>
+    <MainHeader />
     <div class="bg-body">
       <img src="@/assets/images/images_BG.png" alt="bg" />
       <div class="bg-dots">
@@ -31,18 +29,12 @@ export default {
 @import '@/assets/scss/_variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
-body {
-  width: 1440px;
-  margin: 0 auto;
-  background-color: red;
-}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: red;
-  width: 1440px;
+ 
 }
 .container {
   margin: 0 auto;
@@ -52,12 +44,12 @@ body {
   position: relative;
   position: absolute;
   top: -19px;
-  right: 235px;
+  right: 0;
   z-index: -5;
 }
 .bg-dots {
   position: absolute;
   top: 116px;
-  right: 67px;
+  right: 0;
 }
 </style>

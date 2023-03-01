@@ -1,22 +1,26 @@
 <template>
-  <header class="nav d-flex justify-content-between align-items-center">
-    <div class="wrapper-logo d-flex align-items-center">
-      <div class="logo-img">
-        <img src="@/assets/images/logo.svg" alt="logo" />
+  <header class="nav">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="wrapper-logo d-flex align-items-center">
+        <div class="logo-img">
+          <img src="@/assets/images/logo.svg" alt="logo" />
+        </div>
+        <div class="logo-text">Grid</div>
       </div>
-      <div class="logo-text">Grid</div>
-    </div>
-    <div class="wrapper-link d-flex justify-content-between align-items-center">
-      <LinkHeader title="How it works" />
-      <div class="circle"></div>
-      <LinkHeader title="Who we are" />
-      <div class="circle"></div>
-      <LinkHeader title="What we do" />
-      <div class="circle"></div>
-      <LinkHeader title="Contact us" />
-    </div>
+      <div
+        class="wrapper-link d-flex justify-content-between align-items-center"
+      >
+        <LinkHeader title="How it works" />
+        <div class="circle"></div>
+        <LinkHeader title="Who we are" />
+        <div class="circle"></div>
+        <LinkHeader title="What we do" />
+        <div class="circle"></div>
+        <LinkHeader title="Contact us" />
+      </div>
 
-    <MainButton title="sign in" size="medium" />
+      <MainButton title="sign in" size="medium" />
+    </div>
   </header>
 </template>
 
@@ -38,6 +42,7 @@ export default {
   height: 96px;
   border-bottom: 5px solid;
   border-image: linear-gradient(to bottom, #a0a5a5, #ffffff) 50% 0%;
+  background-color: #fff;
 }
 .logo-img {
   width: 70px;
