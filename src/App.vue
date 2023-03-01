@@ -33,12 +33,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
- 
+  color: var(--main-font-color);
+  font-family: 'Inter', sans-serif;
 }
 .container {
   margin: 0 auto;
   width: 1170px;
+  box-sizing: border-box;
 }
 .bg-body {
   position: relative;
@@ -53,3 +54,7 @@ export default {
   right: 0;
 }
 </style>
+
+<!-- box-sizing: border-box;? -->
+<!-- font-family: 'Inter', sans-serif; -->
+<!-- color: var(--main-font-color); -->

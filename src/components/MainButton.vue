@@ -10,6 +10,10 @@ export default {
       type: String,
       required: true,
     },
+    size: {
+      type: String,
+      default: '',
+    }
   },
 };
 </script>
