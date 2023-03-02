@@ -104,6 +104,7 @@ export default {
   line-height: 32px;
   color: var(--main-font-color);
   margin-bottom: 16px;
+  text-align: start;
 }
 .photo-1_title {
   background-image: url('@/assets/images/photo/Image-1.png');
@@ -135,6 +136,7 @@ export default {
   line-height: 32px;
   margin-bottom: 20px;
   color: var(--main-font-color);
+  text-align: start;
 }
 .box-2_wrap {
   margin-left: 30px;
@@ -196,6 +198,3 @@ export default {
   background-image: url('@/assets/images/photo/Image-7.png');
 }
 </style>
-
-<!-- color??????? global-->
-<!-- cover-2 d-flex justify-content-between -->

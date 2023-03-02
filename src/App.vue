@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <MainHeader />
     <div class="bg-body">
       <img src="@/assets/images/images_BG.png" alt="bg" />
@@ -29,12 +29,13 @@ export default {
 @import '@/assets/scss/_variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
-#app {
+.app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--main-font-color);
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 .container {
   margin: 0 auto;

@@ -1,5 +1,5 @@
 <template>
-  <button class="main-btn d-flex align-items-center">{{ title }}</button>
+  <button class="main-btn d-flex align-items-center" :class='`${size}-btn`' >{{ title }}</button>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
     },
     size: {
       type: String,
-      default: '',
+      default: 'medium',
     }
   },
 };
@@ -32,5 +32,10 @@ export default {
 }
 .main-btn:hover {
   background-color: var(--main-font-color);
+}
+.big-btn{
+  width: 270px;
+  min-height: 82px;
+  font-size: 32px;
 }
 </style>
