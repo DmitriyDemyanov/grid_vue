@@ -1,5 +1,5 @@
 <template>
-  <button class="main-btn d-flex align-items-center" :class='`${size}-btn`' >{{ title }}</button>
+  <button class="main-btn d-flex align-items-center justify-content-center" :class='`${size}-btn`' >{{ title }}</button>
 </template>
 
 <script>
@@ -37,5 +37,6 @@ export default {
   width: 270px;
   min-height: 82px;
   font-size: 32px;
+  
 }
 </style>

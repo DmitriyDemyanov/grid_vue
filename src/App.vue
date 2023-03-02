@@ -9,6 +9,8 @@
     </div>
     <div class="container">
       <CombineImages />
+      <DeliverySection/>
+      <PriceSection/>
     </div>
   </div>
 </template>
@@ -16,11 +18,15 @@
 <script>
 import MainHeader from './components/MainHeader';
 import CombineImages from './components/CombineImages';
+import DeliverySection from './components/DeliverySection';
+import PriceSection from './components/PriceSection';
 export default {
   name: 'App',
   components: {
     MainHeader,
     CombineImages,
+    DeliverySection,
+    PriceSection,
   },
 };
 </script>
