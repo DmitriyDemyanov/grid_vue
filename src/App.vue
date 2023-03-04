@@ -12,6 +12,7 @@
       <DeliverySection/>
       <PriceSection/>
     </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -59,6 +60,9 @@ export default {
   position: absolute;
   top: 116px;
   right: 0;
+}
+.footer {
+  height: 100px;
 }
 </style>
 

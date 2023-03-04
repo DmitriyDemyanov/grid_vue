@@ -5,12 +5,17 @@
     <div class="price-subtitle">
       Bill me <span class="price-word">monthly</span> • yearly
     </div>
+    <CardPrice/>
   </div>
 </template>
 
 <script>
+import CardPrice from './CardPrice';
 export default {
   name: 'PriceSection',
+  components: {
+    CardPrice,
+  }
 };
 </script>
 
