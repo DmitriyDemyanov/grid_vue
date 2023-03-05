@@ -5,17 +5,35 @@
     <div class="price-subtitle">
       Bill me <span class="price-word">monthly</span> • yearly
     </div>
-    <CardPrice/>
+
+    <div class="d-flex justify-content-between">
+      <CardPrice
+        v-for="(item, index) in getCardsItem"
+        :key="index"
+        :title="item.description"
+        :price="item.price"
+        :currency="item.currency"
+        :term="item.term"
+        :button="item.button"
+        :best="item.best"
+        :bg="item.bg"
+        
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CardPrice from './CardPrice';
 export default {
   name: 'PriceSection',
   components: {
     CardPrice,
-  }
+  },
+  computed: {
+    ...mapGetters(['getCardsItem']),
+  },
 };
 </script>
 
@@ -35,14 +53,13 @@ export default {
   position: relative;
   &::before {
     content: '';
-  width: 126px;
-  height: 12px;
-  position: absolute;
-  bottom: 0;
-  z-index: -2;
-  background: #fdcb6e;
-  border-radius: 999px;
+    width: 126px;
+    height: 12px;
+    position: absolute;
+    bottom: 0;
+    z-index: -2;
+    background: #fdcb6e;
+    border-radius: 999px;
   }
 }
-
 </style>

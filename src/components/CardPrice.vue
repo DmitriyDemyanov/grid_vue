@@ -1,47 +1,49 @@
 <template>
   <div class="card-wrapper">
     <div class="d-flex justify-content-between">
-      <div class="card-title">👤 Individual</div>
-      <div class="card-best">b e s t !</div>
+      <div class="card-title">{{ title }}</div>
+      <div class="card-best" :class="`best-${visible}`">b e s t !</div>
     </div>
-    <div class="card-price">$24<span class="price-term"> / month </span></div>
+    <div class="card-price">
+      {{ currency }}{{ price }}<span class="price-term">{{ term }}</span>
+    </div>
 
     <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon">
+      <div class="advantages-icon" :style="`background-color:${bg}`">
         <img src="@/assets/images/icons/check.svg" alt="check" />
       </div>
       <div class="advantages-text">Components-driven system</div>
     </div>
 
     <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon">
+      <div class="advantages-icon" :style="`background-color:${bg}`">
         <img src="@/assets/images/icons/check.svg" alt="check" />
       </div>
       <div class="advantages-text">Components-driven system</div>
     </div>
 
     <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon">
+      <div class="advantages-icon" :style="`background-color:${bg}`">
         <img src="@/assets/images/icons/check.svg" alt="check" />
       </div>
       <div class="advantages-text">Components-driven system</div>
     </div>
 
     <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon">
+      <div class="advantages-icon" :style="`background-color:${bg}`">
         <img src="@/assets/images/icons/check.svg" alt="check" />
       </div>
       <div class="advantages-text">Components-driven system</div>
     </div>
 
     <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon">
+      <div class="advantages-icon" :style="`background-color:${bg}`">
         <img src="@/assets/images/icons/check.svg" alt="check" />
       </div>
       <div class="advantages-text">Components-driven system</div>
     </div>
 
-    <UserButton />
+    <UserButton :text="button" size="big" />
   </div>
 </template>
 
@@ -51,6 +53,46 @@ export default {
   name: 'CardPrice',
   components: {
     UserButton,
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    currency: {
+      type: String,
+      required: true,
+    },
+    term: {
+      type: String,
+      required: true,
+    },
+  
+    button: {
+      type: String,
+      required: true,
+    },
+    bg: {
+      type: String,
+      required: true,
+    },
+    best: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    visibleBest() {
+      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',this.best)
+      if (this.best === true) {
+        return 'visible';
+      }
+      return '';
+    },
   },
 };
 </script>
@@ -77,6 +119,10 @@ export default {
   border-radius: 99px;
   padding: 8px 20px;
 }
+.best-visible {
+  display: none;
+}
+
 .card-price {
   font-weight: 700;
   font-size: 48px;
@@ -86,6 +132,7 @@ export default {
 .price-term {
   font-weight: 900;
   font-size: 14px;
+  text-transform: uppercase;
 }
 .advantages-wrap {
   margin-top: 4px;

@@ -1,12 +1,25 @@
 <template>
-  <button class="user-btn d-flex align-items-center justify-content-center">
-    Learn more
+  <button
+    class="user-btn d-flex align-items-center justify-content-center"
+    :class="`btn-${size}`"
+  >
+    {{ text }}
   </button>
 </template>
 
 <script>
 export default {
   name: 'UserButton',
+  props: {
+    text: {
+      type: String,
+      default: 'Learn more',
+    },
+    size: {
+      type: String,
+      default: '',
+    },
+  },
 };
 </script>
 
@@ -25,5 +38,8 @@ export default {
     background-color: var(--main-color-purple);
     border: none;
   }
+}
+.btn-big {
+  width: 100%;
 }
 </style>
