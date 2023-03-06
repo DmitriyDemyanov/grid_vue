@@ -1,49 +1,34 @@
 <template>
-  <div class="card-wrapper">
-    <div class="d-flex justify-content-between">
-      <div class="card-title">{{ title }}</div>
-      <div class="card-best" :class="`best-${visible}`">b e s t !</div>
+  <div class="position-relative order-card">
+    <div class="card-bg">
+      <img src="@/assets/images/wiggle.svg" alt="" />
     </div>
-    <div class="card-price">
-      {{ currency }}{{ price }}<span class="price-term">{{ term }}</span>
-    </div>
+    <div class="card-wrapper">
+      <div>
+        <div class="d-flex justify-content-between">
+          <div class="card-title">{{ title }}</div>
+          <div v-if="best" class="card-best">b e s t !</div>
+        </div>
+        <div class="card-price">
+          {{ currency }}{{ price }}<span class="price-term">{{ term }}</span>
+        </div>
 
-    <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon" :style="`background-color:${bg}`">
-        <img src="@/assets/images/icons/check.svg" alt="check" />
+        <div
+          class="advantages-wrap d-flex align-items-center"
+          v-for="(el, ind) in advantages"
+          :key="ind"
+        >
+          <div class="advantages-icon" :style="`background-color:${bg}`">
+            <img src="@/assets/images/icons/check.svg" alt="check" />
+          </div>
+          <div class="advantages-text">{{ el }}</div>
+        </div>
       </div>
-      <div class="advantages-text">Components-driven system</div>
-    </div>
 
-    <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon" :style="`background-color:${bg}`">
-        <img src="@/assets/images/icons/check.svg" alt="check" />
+      <div class="wrap-user_btn">
+        <UserButton :text="button" size="big" />
       </div>
-      <div class="advantages-text">Components-driven system</div>
     </div>
-
-    <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon" :style="`background-color:${bg}`">
-        <img src="@/assets/images/icons/check.svg" alt="check" />
-      </div>
-      <div class="advantages-text">Components-driven system</div>
-    </div>
-
-    <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon" :style="`background-color:${bg}`">
-        <img src="@/assets/images/icons/check.svg" alt="check" />
-      </div>
-      <div class="advantages-text">Components-driven system</div>
-    </div>
-
-    <div class="advantages-wrap d-flex align-items-center">
-      <div class="advantages-icon" :style="`background-color:${bg}`">
-        <img src="@/assets/images/icons/check.svg" alt="check" />
-      </div>
-      <div class="advantages-text">Components-driven system</div>
-    </div>
-
-    <UserButton :text="button" size="big" />
   </div>
 </template>
 
@@ -71,7 +56,7 @@ export default {
       type: String,
       required: true,
     },
-  
+
     button: {
       type: String,
       required: true,
@@ -84,28 +69,47 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  computed: {
-    visibleBest() {
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',this.best)
-      if (this.best === true) {
-        return 'visible';
-      }
-      return '';
+    advantages: {
+      type: Array,
+      required: true,
     },
   },
+
 };
 </script>
 
 <style lang="scss" scoped>
-.card-wrapper {
-  width: 370px;
-  padding: 32px;
+.order-card {
+  border-radius: 20px;
+  background-color: #fff;
   &:hover {
-    border-radius: 16px;
     box-shadow: 0 9px 12px -8px #a0a5a5;
+    .card-bg {
+      opacity: 1;
+    }
   }
 }
+.card-bg {
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  z-index: -3;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.card-bg_none {
+  display: none;
+}
+.card-wrapper {
+  width: 370px;
+  min-height: 536px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
 .card-title {
   color: var(--main-color-purple);
   font-weight: 700;
@@ -118,9 +122,6 @@ export default {
   border: 1px solid #6c5ce7;
   border-radius: 99px;
   padding: 8px 20px;
-}
-.best-visible {
-  display: none;
 }
 
 .card-price {
@@ -145,8 +146,8 @@ export default {
   width: 32px;
   height: 32px;
   background-color: #fdcb6e;
-  border-radius: 50%;
   margin-right: 16px;
+  border-radius: 50%;
 }
 .advantages-text {
   font-weight: 400;

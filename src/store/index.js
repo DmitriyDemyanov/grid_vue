@@ -38,7 +38,7 @@ export default new Vuex.Store({
         currency: '',
         term: ' / forever',
         button: 'Try for free',
-        best: true,
+        best: false,
         bg: '#C2C2C2',
         advantages: [
           'Components-driven system',
@@ -47,7 +47,7 @@ export default new Vuex.Store({
         ],
       },
       {
-        description: 'Individual',
+        description: '👤 Individual',
         price: '24', // null
         currency: '$', // ''
         term: ' / month',
@@ -69,7 +69,7 @@ export default new Vuex.Store({
         currency: '$', // ''
         term: ' / editor',
         button: 'Extended license',
-        best: true,
+        best: false,
         bg: '#55EFC4',
         advantages: [
           'Components-driven system',

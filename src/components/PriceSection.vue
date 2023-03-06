@@ -17,6 +17,7 @@
         :button="item.button"
         :best="item.best"
         :bg="item.bg"
+        :advantages="item.advantages"
         
       />
     </div>
