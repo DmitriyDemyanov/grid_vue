@@ -1,5 +1,10 @@
 <template>
-  <button class="main-btn d-flex align-items-center justify-content-center" :class='`${size}-btn`' >{{ title }}</button>
+  <button
+    class="main-btn d-flex align-items-center justify-content-center"
+    :class="`${size}-btn`"
+  >
+    {{ title }}
+  </button>
 </template>
 
 <script>
@@ -13,7 +18,7 @@ export default {
     size: {
       type: String,
       default: 'medium',
-    }
+    },
   },
 };
 </script>
@@ -33,10 +38,16 @@ export default {
 .main-btn:hover {
   background-color: var(--main-font-color);
 }
-.big-btn{
+.big-btn {
   width: 270px;
   min-height: 82px;
   font-size: 32px;
-  
+}
+.fat-btn {
+  width: 30%;
+  height: 100%;
+  text-transform: uppercase;
+  border-radius: 16px;
+  margin-left: 30px;
 }
 </style>

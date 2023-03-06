@@ -9,10 +9,11 @@
     </div>
     <div class="container">
       <CombineImages />
-      <DeliverySection/>
-      <PriceSection/>
+      <DeliverySection />
+      <PriceSection />
+      <SectionFooter />
     </div>
-    <div class="footer"></div>
+    <div class="footer"><img src="@/assets/images/Wave.png" alt="#"></div>
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import MainHeader from './components/MainHeader';
 import CombineImages from './components/CombineImages';
 import DeliverySection from './components/DeliverySection';
 import PriceSection from './components/PriceSection';
+import SectionFooter from './components/SectionFooter';
 export default {
   name: 'App',
   components: {
@@ -28,6 +30,7 @@ export default {
     CombineImages,
     DeliverySection,
     PriceSection,
+    SectionFooter,
   },
 };
 </script>

@@ -79,6 +79,17 @@ export default new Vuex.Store({
         ],
       },
     ],
+    socialIcons: ['facebook', 'linkedin', 'slack', 'twitter'],
+    socialLinks: [
+      'About Fapster app',
+      'Onhovered / Active',
+      'We are hiring!',
+      'Get in Touch',
+      'Privacy Policy',
+      'Resources',
+      'Things We Like',
+      'Terms of Service',
+    ],
   },
   getters: {
     getDeliveryItem(state) {
@@ -86,6 +97,12 @@ export default new Vuex.Store({
     },
     getCardsItem(state) {
       return state.cardsItem;
+    },
+    getSocialIcons(state) {
+      return state.socialIcons;
+    },
+    getSocialLinks(state) {
+      return state.socialLinks;
     },
   },
   mutations: {},
