@@ -42,6 +42,7 @@ export default {
 .price-title {
   font-weight: 900;
   font-size: 64px;
+  line-height: 77px;
 }
 .price-subtitle {
   font-weight: 700;

@@ -10,10 +10,8 @@ export default {
   name: 'InputFooter',
   props: {
     placeholder: {
-      type: Object,
-      default() {
-        return {};
-      },
+      type: String,
+      default: '',
     },
   },
 };
@@ -29,10 +27,9 @@ input {
   background-color: rgba(194, 194, 194, 0.24);
   border: none;
   border-radius: 16px;
-  padding: 8px 16px;
+  padding: 8px 40px 8px 16px;
   font-weight: 400;
   font-size: 18px;
-
   &:focus {
     outline-color: var(--main-color-purple);
   }

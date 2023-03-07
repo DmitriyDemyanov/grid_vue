@@ -13,7 +13,7 @@
       <PriceSection />
       <SectionFooter />
     </div>
-    <div class="footer"><img src="@/assets/images/Wave.png" alt="#"></div>
+    <div class="bg-bottom"></div>
   </div>
 </template>
 
@@ -64,12 +64,10 @@ export default {
   top: 116px;
   right: 0;
 }
-.footer {
+.bg-bottom {
+  width: 100%;
   height: 100px;
-  
+  background-image: url(@/assets/images/Wave.png);
+ 
 }
 </style>
-
-<!-- box-sizing: border-box;? -->
-<!-- font-family: 'Inter', sans-serif; -->
-<!-- color: var(--main-font-color); -->

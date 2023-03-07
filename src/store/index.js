@@ -15,7 +15,7 @@ export default new Vuex.Store({
       {
         title: 'Sales growth',
         text: 'Identify qualified customers with easy-to-use live chat messaging and AI-based Sales Bot',
-        img: 'clock-1',
+        img: 'clock',
         bg: '#0984E3',
       },
       {
@@ -123,18 +123,4 @@ export default new Vuex.Store({
   modules: {},
 });
 
-// const plan = {
-//   description: 'Individual',
-//   price: 24, // null
-//   currency: '$', // ''
-//   term: 'month',
-//   button: 'Regular license',
-//   best: true,
-//   advantages: [
-//     'Components-driven system',
-//     'Sales-boosting landing pages',
-//     'Awesome Feather icons pack',
-//     'Themed into 3 different styles',
-//     'Will help to learn Figma',
-//   ],
-// };
+

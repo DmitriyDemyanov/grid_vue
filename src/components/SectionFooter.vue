@@ -51,11 +51,13 @@
             </InputFooter>
           </div>
           <div class="d-flex justify-content-between wrap-form_btn">
-            <textarea
-              style="resize: none"
-              class="textarea-footer"
-              placeholder="Leave your message|"
-            ></textarea>
+            <TextareaFooter>
+              <template v-slot:slot-textarea>
+                <div class="icon-textarea">
+                  <img src="@/assets/images/icons/icon-edit.svg" alt="icon" />
+                </div>
+              </template>
+            </TextareaFooter>
             <MainButton title="send" size="fat" />
           </div>
         </form>
@@ -67,6 +69,7 @@
 <script>
 import MainButton from './MainButton';
 import InputFooter from './InputFooter';
+import TextareaFooter from './TextareaFooter';
 
 import { mapGetters } from 'vuex';
 export default {
@@ -74,6 +77,7 @@ export default {
   components: {
     MainButton,
     InputFooter,
+    TextareaFooter,
   },
   computed: {
     ...mapGetters(['getSocialIcons', 'getSocialLinks', 'getInputPlaceholder']),
@@ -83,7 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer-wrapper {
-  margin-top: 160px;
+  margin-top: 130px;
 }
 .footer-social {
   width: calc(50% - 15px);
@@ -137,6 +141,7 @@ export default {
   color: var(--main-color-purple);
   margin-bottom: 48px;
   & a {
+    color: var(--main-color-purple);
     text-decoration: none;
     &:hover {
       color: var(--main-font-color);
@@ -151,32 +156,27 @@ export default {
 .wrap-form_btn {
   height: 80px;
   margin-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 43px;
 }
-.textarea-footer {
-  width: 69%;
-  background-color: rgba(194, 194, 194, 0.24);
-  border: 2px solid rgba(108, 92, 231, 0.24);
-  border-radius: 16px;
-  padding: 16px;
-  &::placeholder {
-    color: var(--main-color-purple);
-    font-weight: 700;
-    font-size: 18px;
-  }
-}
+
 .append-icon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+.icon-textarea {
   position: absolute;
   top: 1px;
   right: 1px;
 }
 </style>
 
-<!-- Д\З- сделать волну до конца,  
-     delete icon -bg , 
-     сделать icon-textarea,
-     icon-color purple
-     background-position (background-position-x, background-position-y)
-     background-repeat
-     background-size
+<!-- Д\З- сделать волну до конца,  +
+    
+     сделать icon-textarea,+
+     icon-color purple +
+     background-position (background-position-x, background-position-y)+
+     background-repeat+
+     background-size+
+     icon clock  fixed+
     -->
