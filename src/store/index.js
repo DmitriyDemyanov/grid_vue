@@ -90,6 +90,16 @@ export default new Vuex.Store({
       'Things We Like',
       'Terms of Service',
     ],
+    inputPlaceholder: [
+      {
+        title: 'Your name',
+        img: 'icon-user',
+      },
+      {
+        title: 'E-mail',
+        img: 'icon-mail',
+      },
+    ],
   },
   getters: {
     getDeliveryItem(state) {
@@ -103,6 +113,9 @@ export default new Vuex.Store({
     },
     getSocialLinks(state) {
       return state.socialLinks;
+    },
+    getInputPlaceholder(state) {
+      return state.inputPlaceholder;
     },
   },
   mutations: {},

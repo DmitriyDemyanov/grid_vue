@@ -35,14 +35,26 @@
       <div class="wrapper-form">
         <form>
           <div class="d-flex justify-content-between">
-            <input class="name-input" type="text" placeholder="Your name" />
-            <input class="e-mail-input" type="text" placeholder="E-mail" />
+            <InputFooter
+              v-for="(item, ind) in getInputPlaceholder"
+              :key="ind"
+              :placeholder="item.title"
+            >
+              <template v-slot:append-icon>
+                <div class="append-icon">
+                  <input
+                    type="image"
+                    :src="require(`@/assets/images/icons/${item.img}.svg`)"
+                    alt="icon"
+                  />
+                </div>
+              </template>
+            </InputFooter>
           </div>
           <div class="d-flex justify-content-between wrap-form_btn">
             <textarea
               style="resize: none"
               class="textarea-footer"
-              aria-label="With textarea"
               placeholder="Leave your message|"
             ></textarea>
             <MainButton title="send" size="fat" />
@@ -55,15 +67,17 @@
 
 <script>
 import MainButton from './MainButton';
+import InputFooter from './InputFooter';
 
 import { mapGetters } from 'vuex';
 export default {
   name: 'SectionFooter',
   components: {
     MainButton,
+    InputFooter,
   },
   computed: {
-    ...mapGetters(['getSocialIcons', 'getSocialLinks']),
+    ...mapGetters(['getSocialIcons', 'getSocialLinks', 'getInputPlaceholder']),
   },
 };
 </script>
@@ -134,19 +148,11 @@ export default {
 .wrapper-form {
   margin-top: 16px;
 }
-input {
-  width: calc(50% - 15px);
-  height: 48px;
-  background-color: rgba(194, 194, 194, 0.24);
-  border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
-  font-weight: 400;
-  font-size: 18px;
-}
+
 .wrap-form_btn {
   height: 80px;
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 .textarea-footer {
   width: 69%;
@@ -160,4 +166,15 @@ input {
     font-size: 18px;
   }
 }
+.append-icon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
 </style>
+
+<!-- Д\З- сделать волну до конца,  
+     delete icon -bg , 
+     сделать icon-textarea,
+     icon-color purple -->
+    
