@@ -42,8 +42,7 @@
             >
               <template v-slot:append-icon>
                 <div class="append-icon">
-                  <input
-                    type="image"
+                  <img
                     :src="require(`@/assets/images/icons/${item.img}.svg`)"
                     alt="icon"
                   />
@@ -176,5 +175,8 @@ export default {
 <!-- Д\З- сделать волну до конца,  
      delete icon -bg , 
      сделать icon-textarea,
-     icon-color purple -->
-    
+     icon-color purple
+     background-position (background-position-x, background-position-y)
+     background-repeat
+     background-size
+    -->
