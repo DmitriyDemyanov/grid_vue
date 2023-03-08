@@ -12,6 +12,7 @@
       <DeliverySection />
       <PriceSection />
       <SectionFooter />
+      <ModalSignIn />
     </div>
     <div class="bg-bottom"></div>
   </div>
@@ -23,6 +24,7 @@ import CombineImages from './components/CombineImages';
 import DeliverySection from './components/DeliverySection';
 import PriceSection from './components/PriceSection';
 import SectionFooter from './components/SectionFooter';
+import ModalSignIn from '@/components/ModalSignIn';
 export default {
   name: 'App',
   components: {
@@ -31,6 +33,7 @@ export default {
     DeliverySection,
     PriceSection,
     SectionFooter,
+    ModalSignIn,
   },
 };
 </script>
@@ -68,6 +71,5 @@ export default {
   width: 100%;
   height: 100px;
   background-image: url(@/assets/images/Wave.png);
- 
 }
 </style>

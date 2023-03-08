@@ -63,6 +63,9 @@
         </form>
       </div>
     </div>
+   
+  
+   
   </section>
 </template>
 
@@ -82,6 +85,7 @@ export default {
   computed: {
     ...mapGetters(['getSocialIcons', 'getSocialLinks', 'getInputPlaceholder']),
   },
+ 
 };
 </script>
 
