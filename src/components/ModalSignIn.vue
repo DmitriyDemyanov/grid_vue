@@ -7,8 +7,12 @@
     centered
   >
     <div class="modal-title">Please enter your details!</div>
-    <div>
-      <label class="label-name mt-3" for="input-name">Your Name:</label>
+
+    <div class="wrap-input">
+      <div class="wrap-icon">
+        <img src="@/assets/images/icons/icon-user.svg" alt="icon" />
+      </div>
+      <label class="label-name" for="input-name">Your Name:</label>
       <input
         id="input-name"
         type="text"
@@ -16,18 +20,21 @@
         placeholder="Enter name"
         required
       />
-
-      <div class="wrap-email">
-        <label class="label-email" for="input-email">Your Email:</label>
-        <input
-          id="input-email"
-          type="text"
-          v-model="form.email"
-          placeholder="Enter name"
-          required
-        />
-      </div>
     </div>
+    <div class="wrap-input">
+      <div class="wrap-icon">
+        <img src="@/assets/images/icons/icon-mail.svg" alt="icon" />
+      </div>
+      <label class="label-email" for="input-email">Your Email:</label>
+      <input
+        id="input-email"
+        type="text"
+        v-model="form.email"
+        placeholder="Enter name"
+        required
+      />
+    </div>
+
     <div class="wrapper-btn d-flex justify-content-between">
       <button class="cancel-btn btn">cancel</button>
       <button class="sign-in-btn btn">sign in</button>
@@ -88,9 +95,16 @@ export default {
     background-color: var(--main-color-purple);
   }
 }
-.wrap-email {
+.wrap-input {
   margin-top: 20px;
+  position: relative;
 }
+.wrap-icon {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+}
+
 input {
   width: 100%;
   height: 48px;

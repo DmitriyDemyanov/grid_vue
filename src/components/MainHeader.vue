@@ -19,7 +19,7 @@
         <LinkHeader title="Contact us" />
       </div>
 
-      <MainButton title="sign in" size="medium" />
+      <MainButton title="sign in" size="medium"/>
      
     </div>
   </header>
