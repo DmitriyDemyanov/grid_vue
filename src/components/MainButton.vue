@@ -2,7 +2,7 @@
   <button
     class="main-btn d-flex align-items-center justify-content-center"
     :class="`${size}-btn`" 
-      @click="modal('modal-1')"
+     
     
   >
     {{ title }}
@@ -22,11 +22,7 @@ export default {
       default: 'medium',
     },
   },
-   methods: {
-    modal(id) {
-       this.$bvModal.show(id);
-    }
-  },
+  
 };
 </script>
 
