@@ -25,6 +25,10 @@ import DeliverySection from './components/DeliverySection';
 import PriceSection from './components/PriceSection';
 import SectionFooter from './components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
+import { mapActions } from 'vuex';
+
+
+
 export default {
   name: 'App',
   components: {
@@ -34,6 +38,12 @@ export default {
     PriceSection,
     SectionFooter,
     ModalSignIn,
+  },
+  methods: {
+    ...mapActions('delivery',['fetchDelivery'])
+  },
+  mounted() {
+    this.fetchDelivery();
   },
 };
 </script>
