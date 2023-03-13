@@ -1,6 +1,6 @@
 const express = require("express");
 
-const db = require("./database/index");
+const db = require("./database");
 
 const app = express();
 
@@ -12,4 +12,4 @@ app.use("/", (req, res) => {
   res.send("<h1>Main Path</h1>")
 });
 
-app.listen(3000);
+app.listen(3500);
