@@ -18,8 +18,8 @@
         <div class="circle"></div>
         <LinkHeader title="Contact us" />
       </div>
-      <div class="wrap-main-btn" @click="modal('modal-1')">
-        <MainButton title="sign in" size="medium" />
+      <div class="wrap-main-btn">
+        <MainButton title="sign in" size="medium" @click="showSignIn" />
       </div>
     </div>
   </header>
@@ -36,8 +36,8 @@ export default {
     LinkHeader,
   },
   methods: {
-    modal(id) {
-      this.$bvModal.show(id);
+    showSignIn() {
+      this.$bvModal.show('modal-1');
     },
   },
 };

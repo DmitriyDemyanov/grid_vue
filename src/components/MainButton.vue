@@ -1,9 +1,8 @@
 <template>
   <button
     class="main-btn d-flex align-items-center justify-content-center"
-    :class="`${size}-btn`" 
-     
-    
+    :class="`${size}-btn`"
+    @click="onClick"
   >
     {{ title }}
   </button>
@@ -22,7 +21,11 @@ export default {
       default: 'medium',
     },
   },
-  
+  methods: {
+    onClick() {
+      this.$emit("click");
+    },
+  },
 };
 </script>
 
