@@ -1,6 +1,15 @@
-import db from '@/server/database';
+const express = require("express");
 
-console.log('->', db);
+const db = require("./database/index");
 
-const x = db.getUser('c@d.gmail.com');
-console.log('X', x);
+const app = express();
+
+app.use("/deliveries", (req, res) => {
+  res.send(db.delivery.deliveryItems);
+});
+
+app.use("/", (req, res) => {
+  res.send("<h1>Main Path</h1>")
+});
+
+app.listen(3000);
