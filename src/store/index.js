@@ -124,3 +124,4 @@ export default new Vuex.Store({
 });
 
 
+// home-work: create get request data with server
