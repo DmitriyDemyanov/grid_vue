@@ -8,7 +8,7 @@
 
     <div class="d-flex justify-content-between">
       <CardPrice
-        v-for="(item, index) in getCardsItem"
+        v-for="(item, index) in getCardItems"
         :key="index"
         :title="item.description"
         :price="item.price"
@@ -33,7 +33,7 @@ export default {
     CardPrice,
   },
   computed: {
-    ...mapGetters(['getCardsItem']),
+    ...mapGetters('delivery', ['getCardItems']),
   },
 };
 </script>

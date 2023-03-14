@@ -9,10 +9,9 @@
       gaps between your layouts, templates and developers to empower all
       involved.
     </div>
-    
 
     <div class="d-flex justify-content-between">
-      <div v-for="(item, index) in getDeliveryItem" :key="index">
+      <div v-for="(item, index) in getDelivery" :key="index">
         <DeliveryItem
           :title="item.title"
           :text="item.text"
@@ -33,7 +32,7 @@ export default {
     DeliveryItem,
   },
   computed: {
-    ...mapGetters(['getDeliveryItem']),
+    ...mapGetters('delivery', ['getDelivery']),
   },
 };
 </script>
@@ -53,5 +52,4 @@ export default {
   font-size: 24px;
   text-align: start;
 }
-
 </style>

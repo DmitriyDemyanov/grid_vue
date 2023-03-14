@@ -37,7 +37,7 @@
 
     <div class="wrapper-btn d-flex justify-content-between">
       <button class="cancel-btn btn">cancel</button>
-      <button class="sign-in-btn btn">sign in</button>
+      <button class="sign-in-btn btn" @click="onSubmit">sign in</button>
     </div>
   </b-modal>
 </template>
@@ -53,6 +53,12 @@ export default {
       },
     };
   },
+  methods: {
+    onSubmit() {
+      console.log("Email is: ",this.form.email);
+      console.log("Password is: ", this.form.password);
+    }
+  }
 };
 </script>
 
@@ -117,9 +123,10 @@ input {
   &:focus {
     outline-color: var(--main-color-purple);
   }
+  &::placeholder {
+    color: var(--main-color-purple);
+  }
 }
 </style>
 
-<!-- v-model="form.name"
-        placeholder="Enter name"
-        required -->
+

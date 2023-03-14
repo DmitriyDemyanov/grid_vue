@@ -33,5 +33,8 @@ input {
   &:focus {
     outline-color: var(--main-color-purple);
   }
+  &::placeholder {
+    color: var(--main-color-purple);
+  }
 }
 </style>

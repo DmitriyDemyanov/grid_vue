@@ -1,19 +1,22 @@
 // const API_URL = 'http://localhost:3500/deliveries';
 
 // import axios from '@/plugins/axios';
+const BASE_URL = 'http://localhost:3500';
 
 export default {
   async fetchDelivery(ctx) {
-    const x = await fetch('http://localhost:3500/deliveries').then((r) =>
-      r.json()
-    );
-    console.log('>>>',ctx);
-    console.log('>>>', x);
-    /*
-    const res = await axios
-      .get('http://localhost:3500/deliveries')
-      .then((response) => response.json());
-    console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>.',res);
-    */
+    const delivery = await fetch(`${BASE_URL}/deliveries`).then((r) => {
+      console.log('Result: ', r);
+      return r.json();
+    });
+    ctx.commit('SET_DELIVERY', delivery);
+  },
+
+  async fetchCardItems(ctx) {
+    const delivery = await fetch(`${BASE_URL}/cards`).then((r) => {
+      console.log('Result: ', r);
+      return r.json();
+    });
+    ctx.commit('SET_CARD_ITEMS', delivery);
   },
 };

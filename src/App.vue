@@ -25,9 +25,9 @@ import DeliverySection from './components/DeliverySection';
 import PriceSection from './components/PriceSection';
 import SectionFooter from './components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
+
+
 import { mapActions } from 'vuex';
-
-
 
 export default {
   name: 'App',
@@ -39,12 +39,14 @@ export default {
     SectionFooter,
     ModalSignIn,
   },
-  methods: {
-    ...mapActions('delivery',['fetchDelivery'])
-  },
-  mounted() {
+   mounted() {
     this.fetchDelivery();
+    this.fetchCardItems();
   },
+  methods: {
+    ...mapActions('delivery', ['fetchDelivery', 'fetchCardItems']),
+  },
+ 
 };
 </script>
 
@@ -83,3 +85,5 @@ export default {
   background-image: url(@/assets/images/Wave.png);
 }
 </style>
+
+<!-- dz/ fixed modal-1 , rename name in password -->
