@@ -10,27 +10,27 @@
 
     <div class="wrap-input">
       <div class="wrap-icon">
-        <img src="@/assets/images/icons/icon-user.svg" alt="icon" />
+        <img src="@/assets/images/icons/icon-mail.svg" alt="icon" />
       </div>
-      <label class="label-name" for="input-name">Your Name:</label>
+      <label for="input-email">Your Email:</label>
       <input
-        id="input-name"
+        id="input-email"
         type="text"
-        v-model="form.name"
-        placeholder="Enter name"
+        v-model="form.email"
+        placeholder="Enter email"
         required
       />
     </div>
     <div class="wrap-input">
       <div class="wrap-icon">
-        <img src="@/assets/images/icons/icon-mail.svg" alt="icon" />
+        <img src="@/assets/images/icons/icon-password.svg" alt="icon" />
       </div>
-      <label class="label-email" for="input-email">Your Email:</label>
+      <label for="input-Password">Your Password:</label>
       <input
-        id="input-email"
-        type="text"
-        v-model="form.email"
-        placeholder="Enter name"
+        id="input-Password"
+        type="Password"
+        v-model="form.password"
+        placeholder="Enter password"
         required
       />
     </div>
@@ -48,17 +48,17 @@ export default {
   data() {
     return {
       form: {
-        name: '',
         email: '',
+        password: '', //or number
       },
     };
   },
   methods: {
     onSubmit() {
-      console.log("Email is: ",this.form.email);
-      console.log("Password is: ", this.form.password);
-    }
-  }
+      console.log('Email is: ', this.form.email);
+      console.log('Password is: ', this.form.password);
+    },
+  },
 };
 </script>
 
@@ -128,5 +128,3 @@ input {
   }
 }
 </style>
-
-
