@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 
 const db = require("./database");
 
 const app = express();
 
+app.use(cors());
+
 app.use("/deliveries", (req, res) => {
-  res.send(db.delivery.deliveryItems);
+  res.json(db.delivery.deliveryItems);
 });
 
 app.use("/", (req, res) => {
