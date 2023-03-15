@@ -45,6 +45,11 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
   height: 96px;
   border-bottom: 5px solid;
   border-image: linear-gradient(to bottom, #a0a5a5, #ffffff) 50% 0%;

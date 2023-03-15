@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .title-main {
-  margin-top: 80px;
+  margin-top: 160px;
   font-weight: 800;
   font-size: 96px;
   line-height: 104px;

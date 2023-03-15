@@ -36,7 +36,7 @@
     </div>
 
     <div class="wrapper-btn d-flex justify-content-between">
-      <button class="cancel-btn btn">cancel</button>
+      <button class="cancel-btn btn" @click="$bvModal.hide('modal-1')">cancel</button>
       <button class="sign-in-btn btn" @click="onSubmit">sign in</button>
     </div>
   </b-modal>
@@ -49,15 +49,21 @@ export default {
     return {
       form: {
         email: '',
-        password: '', //or number
+        password: '',
       },
     };
+  },
+  mounted() {
+    this.$root.$on('bv::modal::hide', () => {
+      this.form.email = '';
+      this.form.password = '';
+    });
   },
   methods: {
     onSubmit() {
       console.log('Email is: ', this.form.email);
       console.log('Password is: ', this.form.password);
-    },
+    }
   },
 };
 </script>

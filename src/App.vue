@@ -86,4 +86,3 @@ export default {
 }
 </style>
 
-<!-- dz/ fixed modal-1 , rename name in password -->
