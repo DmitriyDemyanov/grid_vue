@@ -1,6 +1,6 @@
 <template>
   <div class="link-nav d-flex align-items-center">
-    <a class="link-text" href="#">{{ title }}</a>
+    <router-link class="link-text" :to="route" > {{ title }} </router-link>
     
   </div>
 </template>
@@ -13,6 +13,10 @@ export default {
       type: String,
       required: true,
     },
+    route: {
+      type: String,
+      default: '',
+    }
   },
 };
 </script>

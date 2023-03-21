@@ -175,12 +175,4 @@ export default {
 }
 </style>
 
-<!-- Д\З- сделать волну до конца,  +
-    
-     сделать icon-textarea,+
-     icon-color purple +
-     background-position (background-position-x, background-position-y)+
-     background-repeat+
-     background-size+
-     icon clock  fixed+
-    -->
+
