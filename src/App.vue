@@ -1,31 +1,38 @@
 <template>
   <div class="app">
     <MainHeader />
+    
     <div class="bg-body">
       <img src="@/assets/images/images_BG.png" alt="bg" />
       <div class="bg-dots">
         <img src="@/assets/images/dots_main.png" alt="" />
       </div>
     </div>
+    <router-view class="main-view test-router"></router-view> 
+
     <div class="container">
       <CombineImages />
       <DeliverySection />
       <PriceSection />
+
       <SectionFooter />
       <ModalSignIn />
     </div>
+
     <div class="bg-bottom"></div>
   </div>
+
 </template>
 
 <script>
 import MainHeader from './components/MainHeader';
+
 import CombineImages from './components/CombineImages';
 import DeliverySection from './components/DeliverySection';
 import PriceSection from './components/PriceSection';
+
 import SectionFooter from './components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
-
 
 import { mapActions } from 'vuex';
 
@@ -39,14 +46,13 @@ export default {
     SectionFooter,
     ModalSignIn,
   },
-   mounted() {
+  mounted() {
     this.fetchDelivery();
     this.fetchCardItems();
   },
   methods: {
     ...mapActions('delivery', ['fetchDelivery', 'fetchCardItems']),
   },
- 
 };
 </script>
 
@@ -84,5 +90,8 @@ export default {
   height: 100px;
   background-image: url(@/assets/images/Wave.png);
 }
+.test-router {
+  color: red;
+  font-style: 40px;
+}
 </style>
-
