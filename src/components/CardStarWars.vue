@@ -297,12 +297,11 @@ export default {
       return 'icon-robot';
     },
     convertHeight() {
-      let sm = (+this.character.height % 100);
-      let m = ((+this.character.height - sm) / 100) + 'm'
-      
-      return `${m}${sm}cm`
-    }
-
+      let sm = (this.character.height % 100) !== 0 ? (this.character.height % 100) + 'cm' : '';
+      let m = ((this.character.height - (this.character.height % 100)) / 100);
+      let res = m !== 0 ? m + 'm' : '';
+      return `${res} ${sm}`;
+    },
   },
 };
 </script>

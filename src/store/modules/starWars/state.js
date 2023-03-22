@@ -59,7 +59,7 @@ export default {
   },
   {
     "name": "R2-D2",
-    "height": "96",
+    "height": "100",
     "mass": "32",
     "hair_color": "n/a",
     "skin_color": "white, blue",
