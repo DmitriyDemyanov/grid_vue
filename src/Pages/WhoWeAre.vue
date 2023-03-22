@@ -14,11 +14,15 @@
       </div>
     </div>
 
-    <div class="d-flex flex-wrap justify-content-between">
-      <div v-for="(character, index) in getCharters" :key="index">
-        <CardStarWars :character="character" />
+    
+      <div class="d-flex flex-wrap wrap-cords">
+        <CardStarWars
+          v-for="(character, index) in getCharters"
+          :key="index"
+          :character="character"
+        />
       </div>
-    </div>
+    
   </div>
 </template>
 
@@ -40,6 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrap-cords {
+  margin: 0 4.5%;
+}
 .wrap-title {
   margin-top: 144px;
   margin-bottom: 24px;

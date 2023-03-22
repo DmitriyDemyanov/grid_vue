@@ -1,3 +1,4 @@
+script
 <template>
   <div class="wrapper-card">
     <div class="d-flex wrapper-char_name">
@@ -5,7 +6,10 @@
         class="image-icon d-flex justify-content-center align-items-center"
         :class="`gender-${character.gender}`"
       >
-        <img src="@/assets/images/icons/icon.starWars.svg" alt="icon" />
+        <img
+          :src="require(`@/assets/images/icons/${changeImage}.svg`)"
+          alt="icon"
+        />
       </div>
       <div class="name-character">{{ character.name }}</div>
     </div>
@@ -20,7 +24,7 @@
       eye: <span class="appearance"> {{ character.eye_color }} </span>
     </div>
     <div class="descr-character">
-      height: <span class="appearance"> {{ character.height }} </span>
+      height: <span class="appearance"> {{ convertHeight }} </span>
     </div>
     <div class="btn-details">
       <UserButton text="Details" />
@@ -269,38 +273,7 @@ const x = [
     url: 'https://swapi.dev/api/people/10/',
   },
 ];
-const character = {
-  name: 'Luke Skywalker',
-  height: '172',
-  mass: '77',
-  hair_color: 'blond',
-  skin_color: 'fair',
-  eye_color: 'blue',
-  birth_year: '19BBY',
-  gender: 'male',
-  homeworld: 'https://swapi.dev/api/planets/1/',
-  films: [
-    'https://swapi.dev/api/films/1/',
-    'https://swapi.dev/api/films/2/',
-    'https://swapi.dev/api/films/3/',
-    'https://swapi.dev/api/films/6/',
-  ],
-  species: [],
-  vehicles: [
-    'https://swapi.dev/api/vehicles/14/',
-    'https://swapi.dev/api/vehicles/30/',
-  ],
-  starships: [
-    'https://swapi.dev/api/starships/12/',
-    'https://swapi.dev/api/starships/22/',
-  ],
-  created: '2014-12-09T13:50:51.644000Z',
-  edited: '2014-12-20T21:17:56.891000Z',
-  url: 'https://swapi.dev/api/people/1/',
-};
-
 console.log(x);
-console.log(character);
 
 export default {
   name: 'CardStarWars',
@@ -313,6 +286,24 @@ export default {
       require: true,
     },
   },
+  computed: {
+    changeImage() {
+      if (this.character.gender === 'female') {
+        return 'icon.starWars';
+      }
+      if (this.character.gender === 'male') {
+        return 'icon-man';
+      }
+      return 'icon-robot';
+    },
+    convertHeight() {
+      let sm = (+this.character.height % 100);
+      let m = ((+this.character.height - sm) / 100) + 'm'
+      
+      return `${m}${sm}cm`
+    }
+
+  },
 };
 </script>
 
@@ -322,11 +313,12 @@ export default {
   text-transform: capitalize;
   font-size: 18px;
   font-weight: 700;
-  margin-top: 24px;
+  margin: 24px 12px 0 12px;
   padding: 12px;
   width: 270px;
   height: 330px;
-  box-shadow: inset -1px -1px 4px rgba(108, 92, 231, 0.24);
+  box-shadow: inset -1px -1px 4px rgba(108, 92, 231, 0.24),
+    2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .wrapper-char_name {
   margin-bottom: 42px;
@@ -335,7 +327,7 @@ export default {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: #00B894;
+  background-color: #00b894;
 }
 .name-character {
   padding-top: 8px;
@@ -347,6 +339,7 @@ export default {
 }
 .appearance {
   color: var(--main-color-purple);
+  font-weight: 700;
 }
 .btn-details {
   margin-top: 4px;
