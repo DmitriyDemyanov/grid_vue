@@ -297,8 +297,11 @@ export default {
       return 'icon-robot';
     },
     convertHeight() {
-      let sm = (this.character.height % 100) !== 0 ? (this.character.height % 100) + 'cm' : '';
-      let m = ((this.character.height - (this.character.height % 100)) / 100);
+      let sm =
+        this.character.height % 100 !== 0
+          ? (this.character.height % 100) + 'cm'
+          : '';
+      let m = (this.character.height - (this.character.height % 100)) / 100;
       let res = m !== 0 ? m + 'm' : '';
       return `${res} ${sm}`;
     },
@@ -309,7 +312,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-card {
   text-align: start;
-  text-transform: capitalize;
+
   font-size: 18px;
   font-weight: 700;
   margin: 24px 12px 0 12px;
@@ -331,10 +334,14 @@ export default {
 .name-character {
   padding-top: 8px;
   margin-left: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .descr-character {
   font-weight: 400;
   padding-bottom: 8px;
+  text-transform: capitalize;
 }
 .appearance {
   color: var(--main-color-purple);
