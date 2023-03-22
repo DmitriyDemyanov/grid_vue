@@ -35,7 +35,7 @@
       <div class="wrapper-form">
         <form>
           <div class="d-flex justify-content-between">
-            <InputFooter
+            <InputComponent
               v-for="(item, ind) in getInputPlaceholder"
               :key="ind"
               :placeholder="item.title"
@@ -48,7 +48,7 @@
                   />
                 </div>
               </template>
-            </InputFooter>
+            </InputComponent>
           </div>
           <div class="d-flex justify-content-between wrap-form_btn">
             <TextareaFooter>
@@ -71,7 +71,7 @@
 
 <script>
 import MainButton from './MainButton';
-import InputFooter from './InputFooter';
+import InputComponent from './InputComponent';
 import TextareaFooter from './TextareaFooter';
 
 import { mapGetters } from 'vuex';
@@ -79,7 +79,7 @@ export default {
   name: 'SectionFooter',
   components: {
     MainButton,
-    InputFooter,
+    InputComponent,
     TextareaFooter,
   },
   computed: {

@@ -1,15 +1,23 @@
 <template>
   <div class="wrapper-input position-relative">
-    <input type="text" :placeholder="`${placeholder}`" />
+    <input
+      type="text"
+      :class="`color-${color}`"
+      :placeholder="`${placeholder}`"
+    />
     <slot name="append-icon"></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'InputFooter',
+  name: 'InputComponent',
   props: {
     placeholder: {
+      type: String,
+      default: '',
+    },
+    color: {
       type: String,
       default: '',
     },
@@ -35,6 +43,14 @@ input {
   }
   &::placeholder {
     color: var(--main-color-purple);
+  }
+}
+.color-black {
+  &::placeholder {
+    color: var(--main-font-color);
+  }
+  &:focus {
+    outline-color: var(--main-font-color);
   }
 }
 </style>

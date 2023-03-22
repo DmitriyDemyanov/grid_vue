@@ -1,5 +1,5 @@
 export default {
-  getCharters(state) {
+  getCharacters(state) {
     return state.characters;
-  }
-}
+  },
+};

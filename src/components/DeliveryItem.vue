@@ -1,13 +1,16 @@
 <template>
   <div class="wrapper-item">
-    <div class="icon d-flex align-items-center justify-content-center" :style="`background-color:${bg}`">
-      <img :src='require(`@/assets/images/icons/${img}.svg`)' alt="icon" />
+    <div
+      class="icon d-flex align-items-center justify-content-center"
+      :style="`background-color:${bg}`"
+    >
+      <img :src="require(`@/assets/images/icons/${img}.svg`)" alt="icon" />
     </div>
     <div class="item-title">{{ title }}</div>
     <div class="item-text">
-    {{ text }}
+      {{ text }}
     </div>
-    <UserButton/>
+    <UserButton />
   </div>
 </template>
 
@@ -34,8 +37,8 @@ export default {
     bg: {
       type: String,
       required: true,
-    }
-  }
+    },
+  },
 };
 </script>
 

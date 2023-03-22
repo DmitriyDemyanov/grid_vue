@@ -1,53 +1,51 @@
 <template>
   <div>
-    <div class="d-flex justify-content-between wrap-title">
+    <div class="d-flex justify-content-between wrapper-title">
       <div class="title">Star Wars Characters</div>
 
       <div class="wrapper-input">
-        <InputFooter placeholder="Whom are you looking for">
+        <InputComponent placeholder="Whom are you looking for" color="black">
           <template v-slot:append-icon>
             <div class="append-icon">
-              <img src="@/assets/images/icons/icon-user.svg" alt="icon" />
+              <img src="@/assets/images/icons/icon-user-gray.svg" alt="icon" />
             </div>
           </template>
-        </InputFooter>
+        </InputComponent>
       </div>
     </div>
 
-    
-      <div class="d-flex flex-wrap wrap-cords">
-        <CardStarWars
-          v-for="(character, index) in getCharters"
-          :key="index"
-          :character="character"
-        />
-      </div>
-    
+    <div class="d-flex flex-wrap wrapper-cords">
+      <CardStarWars
+        v-for="(character, index) in getCharacters"
+        :key="index"
+        :character="character"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import InputFooter from '@/components/InputFooter';
+import InputComponent from '@/components/InputComponent';
 import CardStarWars from '@/components/CardStarWars';
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'WhoWeAre',
   components: {
-    InputFooter,
+    InputComponent,
     CardStarWars,
   },
   computed: {
-    ...mapGetters('starWars', ['getCharters']),
+    ...mapGetters('starWars', ['getCharacters']),
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.wrap-cords {
+.wrapper-cords {
   margin: 0 4.5%;
 }
-.wrap-title {
+.wrapper-title {
   margin-top: 144px;
   margin-bottom: 24px;
 }

@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 
-import HowItWorks from '@/Pages/HowItWorks';
-import WhoWeAre from '@/Pages/WhoWeAre';
+import HowItWorks from '@/pages/HowItWorks';
+import WhoWeAre from '@/pages/WhoWeAre';
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,7 +12,7 @@ const routes = [
     component: HowItWorks,
   },
   {
-    path: '/WhoWeAre',
+    path: '/who-we-are',
     name: 'WhoWeAre',
     component: WhoWeAre,
   },
