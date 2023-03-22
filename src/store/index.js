@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import delivery from './modules/delivery';
+import starWars from './modules/starWars';
 
 Vue.use(Vuex);
 
@@ -30,7 +31,6 @@ export default new Vuex.Store({
     ],
   },
   getters: {
-   
     getSocialIcons(state) {
       return state.socialIcons;
     },
@@ -45,6 +45,7 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     delivery,
+    starWars,
   },
 });
 
