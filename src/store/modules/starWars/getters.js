@@ -1,5 +1,5 @@
 export default {
   getCharacters(state) {
-    return state.characters;
+    return state.characters.results;
   },
 };
