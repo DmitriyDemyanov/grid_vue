@@ -2,17 +2,7 @@
   <div class="app">
     <MainHeader />
 
-    <div class="bg-body">
-      <img src="@/assets/images/images_BG.png" alt="bg" />
-      <div class="bg-dots">
-        <img src="@/assets/images/dots_main.png" alt="" />
-      </div>
-    </div>
-
     <div class="container">
-     
-
-      
       <router-view class="main-view"></router-view>
       <SectionFooter />
       <ModalSignIn />
@@ -24,7 +14,6 @@
 
 <script>
 import MainHeader from './components/MainHeader';
-
 
 import SectionFooter from '@/components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
@@ -65,22 +54,10 @@ export default {
   width: 1170px;
   box-sizing: border-box;
 }
-.bg-body {
-  position: relative;
-  position: absolute;
-  top: -19px;
-  right: 0;
-  z-index: -5;
-}
-.bg-dots {
-  position: absolute;
-  top: 116px;
-  right: 0;
-}
+
 .bg-bottom {
   width: 100%;
   height: 100px;
   background-image: url(@/assets/images/Wave.png);
 }
-
 </style>

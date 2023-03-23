@@ -12,9 +12,9 @@
       >
         <LinkHeader route="/" title="How it works" />
         <div class="circle"></div>
-        <LinkHeader route="/WhoWeAre" title="Who we are" />
+        <LinkHeader route="/who-we-are" title="Who we are" />
         <div class="circle"></div>
-        <LinkHeader  title="What we do" />
+        <LinkHeader title="What we do" />
         <div class="circle"></div>
         <LinkHeader title="Contact us" />
       </div>
