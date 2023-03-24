@@ -1,5 +1,7 @@
 export default {
   getCharacters(state) {
-    return state.characters.results;
+    return state.characters;
   },
+  isLoading: (state) => state.isLoading,
+  getErrorMessage: (state) => state.errorMessage,
 };

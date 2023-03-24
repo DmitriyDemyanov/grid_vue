@@ -35,6 +35,14 @@ export default {
     MainButton,
     LinkHeader,
   },
+  mounted() {
+    console.log('====', this.$route);
+  },
+  computed: {
+    pathName() {
+      return this.$route.name;
+    },
+  },
   methods: {
     showSignIn() {
       this.$bvModal.show('modal-1');

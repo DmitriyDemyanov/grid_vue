@@ -63,9 +63,6 @@
         </form>
       </div>
     </div>
-   
-  
-   
   </section>
 </template>
 
@@ -85,13 +82,12 @@ export default {
   computed: {
     ...mapGetters(['getSocialIcons', 'getSocialLinks', 'getInputPlaceholder']),
   },
- 
 };
 </script>
 
 <style lang="scss" scoped>
 .footer-wrapper {
-  margin-top: 130px;
+  padding-top: 80px;
 }
 .footer-social {
   width: calc(50% - 15px);
@@ -174,5 +170,3 @@ export default {
   right: 1px;
 }
 </style>
-
-

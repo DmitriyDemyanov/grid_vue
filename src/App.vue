@@ -18,7 +18,6 @@ import MainHeader from './components/MainHeader';
 import SectionFooter from '@/components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
 
-import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
@@ -26,13 +25,6 @@ export default {
     MainHeader,
     SectionFooter,
     ModalSignIn,
-  },
-  mounted() {
-    this.fetchDelivery();
-    this.fetchCardItems();
-  },
-  methods: {
-    ...mapActions('delivery', ['fetchDelivery', 'fetchCardItems']),
   },
 };
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="loader"></div>
+  <div class="wrapper-loader">
+    <div class="loader"></div>
+  </div>
 </template>
 
 <script>
@@ -9,6 +11,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper-loader {
+  padding: 138px 0;
+}
 .loader {
   width: 100px;
   height: 100px;

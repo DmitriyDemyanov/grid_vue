@@ -13,8 +13,9 @@
         </InputComponent>
       </div>
     </div>
+    <div class="error-msg" v-show="getErrorMessage">{{ getErrorMessage }}</div>
 
-    <GlobalLoader v-if="!getCharacters"/>
+    <GlobalLoader v-if="isLoading" />
 
     <div class="d-flex flex-wrap wrapper-cords" v-else>
       <CardStarWars
@@ -41,7 +42,11 @@ export default {
     GlobalLoader,
   },
   computed: {
-    ...mapGetters('starWars', ['getCharacters']),
+    ...mapGetters('starWars', [
+      'getCharacters',
+      'isLoading',
+      'getErrorMessage',
+    ]),
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
@@ -55,6 +60,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-cords {
   margin: 0 4.5%;
+  padding-bottom: 120px;
 }
 .wrapper-title {
   margin-top: 144px;
@@ -73,4 +79,10 @@ export default {
   font-size: 32px;
   text-align: start;
 }
+.error-msg {
+  color: red;
+  font-size: 40px;
+  font-weight: 900;
+}
+
 </style>

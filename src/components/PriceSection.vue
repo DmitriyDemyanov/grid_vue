@@ -6,7 +6,7 @@
       Bill me <span class="price-word">monthly</span> • yearly
     </div>
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between wrapper-card-price">
       <CardPrice
         v-for="(item, index) in getCardItems"
         :key="index"
@@ -18,7 +18,6 @@
         :best="item.best"
         :bg="item.bg"
         :advantages="item.advantages"
-        
       />
     </div>
   </div>
@@ -63,5 +62,9 @@ export default {
     background: #fdcb6e;
     border-radius: 999px;
   }
+}
+
+.wrapper-card-price {
+  padding-bottom: 52px;
 }
 </style>
