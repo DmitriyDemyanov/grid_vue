@@ -1,18 +1,29 @@
 <template>
   <header class="nav">
     <div class="container d-flex justify-content-between align-items-center">
-      <div class="wrapper-logo d-flex align-items-center">
-        <div class="logo-img">
-          <img src="@/assets/images/logo.svg" alt="logo" />
+      <a href="/">
+        <div class="wrapper-logo d-flex align-items-center">
+          <div class="logo-img">
+            <img src="@/assets/images/logo.svg" alt="logo" />
+          </div>
+          <div class="logo-text">Grid</div>
         </div>
-        <div class="logo-text">Grid</div>
-      </div>
+      </a>
+
       <div
         class="wrapper-link d-flex justify-content-between align-items-center"
       >
-        <LinkHeader route="/" title="How it works" />
+        <LinkHeader
+          route="/"
+          title="How it works"
+          :pathName="this.$route.name === 'home'"
+        />
         <div class="circle"></div>
-        <LinkHeader route="/who-we-are" title="Who we are" />
+        <LinkHeader
+          route="/who-we-are"
+          title="Who we are"
+          :pathName="this.$route.name === 'WhoWeAre'"
+        />
         <div class="circle"></div>
         <LinkHeader title="What we do" />
         <div class="circle"></div>
@@ -40,7 +51,13 @@ export default {
   },
   computed: {
     pathName() {
-      return this.$route.name;
+      if (this.$route.name === 'home') {
+        return 'black';
+      }
+      if (this.$route.name === 'WhoWeAre') {
+        return 'green';
+      }
+      return '';
     },
   },
   methods: {
@@ -52,6 +69,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
 .nav {
   position: fixed;
   top: 0;
