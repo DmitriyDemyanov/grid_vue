@@ -46,7 +46,11 @@ export default {
       'getCharacters',
       'isLoading',
       'getErrorMessage',
+      'getFilteredCharacters',
     ]),
+    myFilteredChar() {
+      return this.getFilteredCharacters('male');
+    },
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
@@ -84,5 +88,4 @@ export default {
   font-size: 40px;
   font-weight: 900;
 }
-
 </style>
