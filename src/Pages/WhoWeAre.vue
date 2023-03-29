@@ -4,7 +4,12 @@
       <div class="title">Star Wars Characters</div>
 
       <div class="wrapper-input">
-        <InputComponent placeholder="Whom are you looking for" color="black">
+        <InputComponent
+        @onInput="test"
+        placeholder="Whom are you looking for"
+        color="black">
+
+
           <template v-slot:append-icon>
             <div class="append-icon">
               <img src="@/assets/images/icons/icon-user-gray.svg" alt="icon" />
@@ -19,7 +24,7 @@
 
     <div class="d-flex flex-wrap wrapper-cords" v-else>
       <CardStarWars
-        v-for="(character, index) in getCharacters"
+        v-for="(character, index) in myFilteredChar"
         :key="index"
         :character="character"
       />
@@ -49,11 +54,16 @@ export default {
       'getFilteredCharacters',
     ]),
     myFilteredChar() {
+      console.log('this.test=====',this.test)
       return this.getFilteredCharacters('male');
     },
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
+    test (text = '') {
+      console.log('text________',text)
+
+    }
   },
   mounted() {
     this.fetchStarWarsCharacters();

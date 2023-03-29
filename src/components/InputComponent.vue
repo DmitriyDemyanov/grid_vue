@@ -4,6 +4,8 @@
       type="text"
       :class="`color-${color}`"
       :placeholder="`${placeholder}`"
+      v-model="input"
+      @input="onInput"
     />
     <slot name="append-icon"></slot>
   </div>
@@ -22,6 +24,16 @@ export default {
       default: '',
     },
   },
+ data() {
+  return {
+    input: '',
+  }
+ },
+ methods: {
+  onInput() {
+    this.$emit('onInput', this.input)
+  }
+ }
 };
 </script>
 
