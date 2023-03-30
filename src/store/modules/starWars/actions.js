@@ -21,4 +21,7 @@ export default {
     ctx.commit('SET_LOADING',false);
     ctx.commit('SET_ERROR_MESSAGE', errorMessage);
   },
+  setSearch({commit}, payload) {
+    commit('SET_SEARCH', payload);
+  }
 };

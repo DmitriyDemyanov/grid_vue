@@ -24,16 +24,16 @@ export default {
       default: '',
     },
   },
- data() {
-  return {
-    input: '',
-  }
- },
- methods: {
-  onInput() {
-    this.$emit('onInput', this.input)
-  }
- }
+  data() {
+    return {
+      input: '',
+    };
+  },
+  methods: {
+    onInput() {
+      this.$emit('onInput', this.input);
+    },
+  },
 };
 </script>
 

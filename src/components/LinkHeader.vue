@@ -1,7 +1,7 @@
 <template>
   <div class="link-nav d-flex align-items-center">
     <router-link class="link-text" :class="{ active: pathName }" :to="route">
-      {{ title }} {{ pathName }}
+      {{ title }}
     </router-link>
   </div>
 </template>

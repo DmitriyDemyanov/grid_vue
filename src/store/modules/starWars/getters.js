@@ -3,9 +3,12 @@ export default {
     return state.characters;
   },
   getFilteredCharacters(state) {
-    return function (gender) {
-      return state.characters.filter(user => user.gender === gender);
+    if (state.search) {
+      return state.characters.filter((user) =>
+        user.name.toLowerCase().includes(state.search.toLowerCase())
+      );
     }
+    return state.characters;
   },
   isLoading: (state) => state.isLoading,
   getErrorMessage: (state) => state.errorMessage,

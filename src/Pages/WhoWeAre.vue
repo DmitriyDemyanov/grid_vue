@@ -5,11 +5,10 @@
 
       <div class="wrapper-input">
         <InputComponent
-        @onInput="test"
-        placeholder="Whom are you looking for"
-        color="black">
-
-
+          placeholder="Whom are you looking for"
+          color="black"
+          @onInput="onInputChanged"
+        >
           <template v-slot:append-icon>
             <div class="append-icon">
               <img src="@/assets/images/icons/icon-user-gray.svg" alt="icon" />
@@ -24,7 +23,7 @@
 
     <div class="d-flex flex-wrap wrapper-cords" v-else>
       <CardStarWars
-        v-for="(character, index) in myFilteredChar"
+        v-for="(character, index) in getFilteredCharacters"
         :key="index"
         :character="character"
       />
@@ -37,7 +36,7 @@ import InputComponent from '@/components/InputComponent';
 import CardStarWars from '@/components/CardStarWars';
 import GlobalLoader from '@/components/GlobalLoader';
 
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'WhoWeAre',
@@ -53,17 +52,13 @@ export default {
       'getErrorMessage',
       'getFilteredCharacters',
     ]),
-    myFilteredChar() {
-      console.log('this.test=====',this.test)
-      return this.getFilteredCharacters('male');
-    },
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
-    test (text = '') {
-      console.log('text________',text)
-
-    }
+    ...mapMutations('starWars', ['SET_SEARCH']),
+    onInputChanged(text) {
+      this.SET_SEARCH(text);
+    },
   },
   mounted() {
     this.fetchStarWarsCharacters();
