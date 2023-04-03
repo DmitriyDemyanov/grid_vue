@@ -7,11 +7,15 @@
         <InputComponent
           placeholder="Whom are you looking for"
           color="black"
+          :trackAppendClick="true"
           @onInput="onInputChanged"
         >
           <template v-slot:append-icon>
             <div class="append-icon">
-              <img src="@/assets/images/icons/icon-user-gray.svg" alt="icon" />
+              <img
+                :src="require(`@/assets/images/icons/${inputIcon}.svg`)"
+                alt="icon"
+              />
             </div>
           </template>
         </InputComponent>
@@ -21,12 +25,18 @@
 
     <GlobalLoader v-if="isLoading" />
 
-    <div class="d-flex flex-wrap wrapper-cords" v-else>
-      <CardStarWars
-        v-for="(character, index) in getFilteredCharacters"
-        :key="index"
-        :character="character"
-      />
+    <div v-else>
+      <div
+        class="d-flex flex-wrap wrapper-cords"
+        v-if="getFilteredCharacters.length"
+      >
+        <CardStarWars
+          v-for="(character, index) in getFilteredCharacters"
+          :key="index"
+          :character="character"
+        />
+      </div>
+      <div v-else class="TEST">No character with you search</div>
     </div>
   </div>
 </template>
@@ -45,6 +55,11 @@ export default {
     CardStarWars,
     GlobalLoader,
   },
+  data() {
+    return {
+      search: '',
+    };
+  },
   computed: {
     ...mapGetters('starWars', [
       'getCharacters',
@@ -52,16 +67,25 @@ export default {
       'getErrorMessage',
       'getFilteredCharacters',
     ]),
+    inputIcon() {
+      if (this.search) {
+        return 'icon-x-circle';
+      }
+      return 'icon-user-gray';
+    },
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
     ...mapMutations('starWars', ['SET_SEARCH']),
     onInputChanged(text) {
+      this.search = text;
       this.SET_SEARCH(text);
     },
   },
   mounted() {
-    this.fetchStarWarsCharacters();
+    if (!this.getCharacters.length) {
+      this.fetchStarWarsCharacters();
+    }
   },
 };
 </script>
@@ -91,6 +115,11 @@ export default {
 .error-msg {
   color: red;
   font-size: 40px;
+  font-weight: 900;
+}
+.TEST {
+  color: brown;
+  font-size: 30px;
   font-weight: 900;
 }
 </style>

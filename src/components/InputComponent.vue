@@ -7,7 +7,9 @@
       v-model="input"
       @input="onInput"
     />
-    <slot name="append-icon"></slot>
+    <span @click="onAppendClick">
+      <slot name="append-icon"></slot>
+    </span>
   </div>
 </template>
 
@@ -23,6 +25,10 @@ export default {
       type: String,
       default: '',
     },
+    trackAppendClick: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -32,6 +38,12 @@ export default {
   methods: {
     onInput() {
       this.$emit('onInput', this.input);
+    },
+    onAppendClick() {
+      if (this.trackAppendClick) {
+        this.input = '';
+        this.$emit('onInput', this.input);
+      }
     },
   },
 };

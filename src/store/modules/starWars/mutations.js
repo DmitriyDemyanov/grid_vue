@@ -1,6 +1,6 @@
 export default {
   SET_STAR_WARS_LIST(state, payload) {
-    state.characters = payload;
+    state.characters = [...state.characters, ...payload];
   },
   SET_LOADING(state, payload) {
     state.isLoading = payload;
