@@ -38,10 +38,11 @@
       </div>
       <div v-else class="no-character">No character with you search</div>
     </div>
-    <div class="wrapper-btn-pg d-flex justify-content-between">
+    <div class="wrapper-btn-pg d-flex justify-content-center align-items-center">
       <UserButton
         text="prev"
-        :disabled="getLinkPrevious ? '' : 'disabled'"
+        size="small"
+        :disabled="getLinkPrevious && !isLoading ? '' : 'disabled'"
         @onClick="onPaginationClick('prev')"
       >
         <template v-slot:prepend-icon>
@@ -63,9 +64,13 @@
           </div>
         </template>
       </UserButton>
+
+      <div class="number-page"> {{ getNumberPage }} </div>
+
       <UserButton
         text="next"
-        :disabled="getLinkNext ? '' : 'disabled'"
+        size="small"
+        :disabled="getLinkNext && !isLoading ? '' : 'disabled'"
         @onClick="onPaginationClick('next')"
       >
         <template v-slot:append-icon>
@@ -128,6 +133,16 @@ export default {
       }
       return 'icon-user-gray';
     },
+    getNumberPage() {
+      if (this.getLinkNext === null && this.getLinkPrevious === null) {
+        return 1
+      }
+      if (this.getLinkNext === null && this.getLinkPrevious !== null) {
+        return this.getLinkPrevious[this.getLinkPrevious.length - 1] * 1 + 1
+      }
+
+      return this.getLinkNext[this.getLinkNext.length - 1] - 1
+    }
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
@@ -138,11 +153,11 @@ export default {
     },
     onPaginationClick(direction) {
       if (direction === 'prev' && this.getLinkPrevious) {
-        console.log('PREVIOUS');
+
         this.fetchStarWarsCharacters(this.getLinkPrevious);
       }
       if (direction === 'next' && this.getLinkNext) {
-        console.log('NEXT');
+
         this.fetchStarWarsCharacters(this.getLinkNext);
       }
     },
@@ -158,7 +173,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-cords {
   margin: 0 4.5%;
-  padding-bottom: 120px;
+  padding-bottom: 50px;  //padding-bottom: 120px;
 }
 .wrapper-title {
   margin-top: 144px;
@@ -197,7 +212,17 @@ export default {
 .append-chevron {
   margin-left: 21px;
 }
-.test {
-  color: #000;
+
+.number-page {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--main-color-orange);
+  color:#000;
+  font-size: 20px;
 }
 </style>

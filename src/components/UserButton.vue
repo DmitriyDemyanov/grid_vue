@@ -58,6 +58,9 @@ export default {
 .btn-big {
   width: 100%;
 }
+.btn-small{
+  width: 100px;
+}
 .disabled {
   opacity: 0.5;
   pointer-events: none;
