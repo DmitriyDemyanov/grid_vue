@@ -1,6 +1,6 @@
 export default {
   SET_STAR_WARS_LIST(state, payload) {
-    state.characters = [...state.characters, ...payload];
+    state.characters = payload;
   },
   SET_LOADING(state, payload) {
     state.isLoading = payload;
@@ -10,5 +10,9 @@ export default {
   },
   SET_SEARCH(state, payload) {
     state.search = payload;
+  },
+  SET_LINKS(state, payload) {
+    state.linkNext = payload.next;
+    state.linkPrevious = payload.previous;
   },
 };

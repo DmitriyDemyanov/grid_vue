@@ -36,7 +36,58 @@
           :character="character"
         />
       </div>
-      <div v-else class="TEST">No character with you search</div>
+      <div v-else class="no-character">No character with you search</div>
+    </div>
+    <div class="wrapper-btn-pg d-flex justify-content-between">
+      <UserButton
+        text="prev"
+        :disabled="getLinkPrevious ? '' : 'disabled'"
+        @onClick="onPaginationClick('prev')"
+      >
+        <template v-slot:prepend-icon>
+          <div class="prepend-chevron">
+            <svg
+              width="8"
+              height="14"
+              viewBox="0 0 8 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 13L1 7L7 1"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </template>
+      </UserButton>
+      <UserButton
+        text="next"
+        :disabled="getLinkNext ? '' : 'disabled'"
+        @onClick="onPaginationClick('next')"
+      >
+        <template v-slot:append-icon>
+          <div class="append-chevron">
+            <svg
+              class="color-svg"
+              width="8"
+              height="14"
+              viewBox="0 0 8 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 13L7 7L1 1"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </template>
+      </UserButton>
     </div>
   </div>
 </template>
@@ -45,6 +96,7 @@
 import InputComponent from '@/components/InputComponent';
 import CardStarWars from '@/components/CardStarWars';
 import GlobalLoader from '@/components/GlobalLoader';
+import UserButton from '@/components/UserButton';
 
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 
@@ -54,6 +106,7 @@ export default {
     InputComponent,
     CardStarWars,
     GlobalLoader,
+    UserButton,
   },
   data() {
     return {
@@ -66,6 +119,8 @@ export default {
       'isLoading',
       'getErrorMessage',
       'getFilteredCharacters',
+      'getLinkPrevious',
+      'getLinkNext',
     ]),
     inputIcon() {
       if (this.search) {
@@ -80,6 +135,16 @@ export default {
     onInputChanged(text) {
       this.search = text;
       this.SET_SEARCH(text);
+    },
+    onPaginationClick(direction) {
+      if (direction === 'prev' && this.getLinkPrevious) {
+        console.log('PREVIOUS');
+        this.fetchStarWarsCharacters(this.getLinkPrevious);
+      }
+      if (direction === 'next' && this.getLinkNext) {
+        console.log('NEXT');
+        this.fetchStarWarsCharacters(this.getLinkNext);
+      }
     },
   },
   mounted() {
@@ -117,9 +182,22 @@ export default {
   font-size: 40px;
   font-weight: 900;
 }
-.TEST {
+.no-character {
   color: brown;
   font-size: 30px;
   font-weight: 900;
+}
+.wrapper-btn-pg {
+  width: 316px;
+  margin: 0 auto;
+}
+.prepend-chevron {
+  margin-right: 21px;
+}
+.append-chevron {
+  margin-left: 21px;
+}
+.test {
+  color: #000;
 }
 </style>

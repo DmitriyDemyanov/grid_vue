@@ -12,4 +12,10 @@ export default {
   },
   isLoading: (state) => state.isLoading,
   getErrorMessage: (state) => state.errorMessage,
+  getLinkPrevious(state) {
+    return state.linkPrevious;
+  },
+  getLinkNext(state) {
+    return state.linkNext;
+  },
 };
