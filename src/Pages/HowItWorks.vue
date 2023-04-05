@@ -19,6 +19,7 @@
 import CombineImages from '@/components/CombineImages';
 import DeliverySection from '@/components/DeliverySection';
 import PriceSection from '@/components/PriceSection';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'HowItWorks',
@@ -26,6 +27,13 @@ export default {
     CombineImages,
     DeliverySection,
     PriceSection,
+  },
+  methods: {
+    ...mapActions('delivery', ['fetchDelivery', 'fetchCardItems']),
+  },
+  mounted() {
+    this.fetchDelivery();
+    this.fetchCardItems();
   },
 };
 </script>

@@ -18,8 +18,6 @@ import MainHeader from './components/MainHeader';
 import SectionFooter from '@/components/SectionFooter';
 import ModalSignIn from '@/components/ModalSignIn';
 
-import { mapActions } from 'vuex';
-
 export default {
   name: 'App',
   components: {
@@ -27,17 +25,10 @@ export default {
     SectionFooter,
     ModalSignIn,
   },
-  mounted() {
-    this.fetchDelivery();
-    this.fetchCardItems();
-  },
-  methods: {
-    ...mapActions('delivery', ['fetchDelivery', 'fetchCardItems']),
-  },
 };
 </script>
 
-<style>
+<style lang="scss">
 @import '@/assets/scss/_variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
 
@@ -59,5 +50,16 @@ export default {
   width: 100%;
   height: 100px;
   background-image: url(@/assets/images/Wave.png);
+}
+
+.svg-button-container {
+  svg {
+    stroke: #5c5c5c;
+  }
+}
+.svg-button-container:hover {
+  svg {
+    stroke: #fff;
+  }
 }
 </style>

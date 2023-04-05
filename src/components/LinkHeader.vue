@@ -1,13 +1,15 @@
 <template>
   <div class="link-nav d-flex align-items-center">
-    <router-link class="link-text" :to="route" > {{ title }} </router-link>
-    
+    <router-link class="link-text" :class="{ active: pathName }" :to="route">
+      {{ title }}
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: 'LinkHeader',
+
   props: {
     title: {
       type: String,
@@ -16,7 +18,11 @@ export default {
     route: {
       type: String,
       default: '',
-    }
+    },
+    pathName: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -33,5 +39,9 @@ export default {
 .link-text:hover {
   font-weight: 700;
   color: var(--main-font-color);
+}
+.active {
+  color: var(--main-font-color);
+  font-weight: 700;
 }
 </style>
