@@ -38,7 +38,9 @@
       </div>
       <div v-else class="no-character">No character with you search</div>
     </div>
-    <div class="wrapper-btn-pg d-flex justify-content-center align-items-center">
+    <div
+      class="wrapper-btn-pg d-flex justify-content-center align-items-center"
+    >
       <UserButton
         text="prev"
         size="small"
@@ -65,7 +67,7 @@
         </template>
       </UserButton>
 
-      <div class="number-page"> {{ getNumberPage }} </div>
+      <div class="number-page">{{ getNumberPage }}</div>
 
       <UserButton
         text="next"
@@ -135,14 +137,14 @@ export default {
     },
     getNumberPage() {
       if (this.getLinkNext === null && this.getLinkPrevious === null) {
-        return 1
+        return 1;
       }
       if (this.getLinkNext === null && this.getLinkPrevious !== null) {
-        return this.getLinkPrevious[this.getLinkPrevious.length - 1] * 1 + 1
+        return this.getLinkPrevious[this.getLinkPrevious.length - 1] * 1 + 1;
       }
 
-      return this.getLinkNext[this.getLinkNext.length - 1] - 1
-    }
+      return this.getLinkNext[this.getLinkNext.length - 1] - 1;
+    },
   },
   methods: {
     ...mapActions('starWars', ['fetchStarWarsCharacters']),
@@ -153,11 +155,9 @@ export default {
     },
     onPaginationClick(direction) {
       if (direction === 'prev' && this.getLinkPrevious) {
-
         this.fetchStarWarsCharacters(this.getLinkPrevious);
       }
       if (direction === 'next' && this.getLinkNext) {
-
         this.fetchStarWarsCharacters(this.getLinkNext);
       }
     },
@@ -173,7 +173,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-cords {
   margin: 0 4.5%;
-  padding-bottom: 50px;  //padding-bottom: 120px;
+  padding-bottom: 50px; //padding-bottom: 120px;
 }
 .wrapper-title {
   margin-top: 144px;
@@ -184,7 +184,8 @@ export default {
 }
 .append-icon {
   position: absolute;
-  top: 1px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1px;
 }
 .title {
@@ -222,7 +223,10 @@ export default {
   justify-content: center;
   border-radius: 50%;
   background-color: var(--main-color-orange);
-  color:#000;
+  color: #000;
   font-size: 20px;
 }
 </style>
+
+1 save a store .... JSON.String........
+local store..

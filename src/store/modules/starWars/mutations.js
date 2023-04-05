@@ -12,7 +12,6 @@ export default {
     state.search = payload;
   },
   SET_LINKS(state, payload) {
-    console.log('88888888888',payload.next)
     state.linkNext = payload.next;
     state.linkPrevious = payload.previous;
   },

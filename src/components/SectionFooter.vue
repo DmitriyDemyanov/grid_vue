@@ -161,7 +161,8 @@ export default {
 
 .append-icon {
   position: absolute;
-  top: 1px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 1px;
 }
 .icon-textarea {

@@ -58,7 +58,7 @@ export default {
 .btn-big {
   width: 100%;
 }
-.btn-small{
+.btn-small {
   width: 100px;
 }
 .disabled {
