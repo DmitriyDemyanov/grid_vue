@@ -14,7 +14,9 @@
       </div>
     </div>
 
-    <div class="d-flex flex-wrap wrapper-cords">
+    <GlobalLoader v-if="!getCharacters"/>
+
+    <div class="d-flex flex-wrap wrapper-cords" v-else>
       <CardStarWars
         v-for="(character, index) in getCharacters"
         :key="index"
@@ -27,16 +29,25 @@
 <script>
 import InputComponent from '@/components/InputComponent';
 import CardStarWars from '@/components/CardStarWars';
-import { mapGetters } from 'vuex';
+import GlobalLoader from '@/components/GlobalLoader';
+
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'WhoWeAre',
   components: {
     InputComponent,
     CardStarWars,
+    GlobalLoader,
   },
   computed: {
     ...mapGetters('starWars', ['getCharacters']),
+  },
+  methods: {
+    ...mapActions('starWars', ['fetchStarWarsCharacters']),
+  },
+  mounted() {
+    this.fetchStarWarsCharacters();
   },
 };
 </script>
